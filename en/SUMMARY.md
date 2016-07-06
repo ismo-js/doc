@@ -1,6 +1,6 @@
 # Summary
 
-* [storm](storm/README.md)
+* [sтorm](storm/README.md)
   - Origins
     + [Interfaces](storm/origin/iface/README.md)
       * Synchronous
@@ -34,4 +34,4 @@
       * Never
       * Loop
 
-* ismo *(coming soon)*
+* ısmo*(coming soon)*
