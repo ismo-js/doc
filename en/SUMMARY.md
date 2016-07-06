@@ -31,6 +31,7 @@
       * [Combine](storm/op/fin/combine.md)
   - Howtos *(coming soon)*
     + Patterns
+      * Never
       * Loop
 
 * ismo *(coming soon)*
