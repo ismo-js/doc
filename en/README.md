@@ -1,1 +1,1 @@
-Isomorphic functional anti-framework for plain EcmaScript 
+*Isomorphic functional anti-framework for plain EcmaScript*
