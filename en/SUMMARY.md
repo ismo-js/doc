@@ -29,5 +29,8 @@
     + Finings
       * [Blank](storm/op/fin/blank,md)
       * [Combine](storm/op/fin/combine,md)
+  - Howtos *(coming soon)*
+    + Patterns
+      * Loop
 
 * ismo *(coming soon)*
