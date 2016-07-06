@@ -14,21 +14,21 @@
   - Streams *(coming soon)*
   - Operators
     + Ranges
-      * [Fill](storm/op/range/fill,md)
+      * [Fill](storm/op/range/fill.md)
       * [Succeed](storm/op/range/succeed.md)
-      * [Dispose](storm/op/range/dispose,md)
+      * [Dispose](storm/op/range/dispose.md)
     + Logics
-      * [And](storm/op/logic/and,md)
-      * [Exclusive Or (`xor`)](storm/op/logic/xor,md)
-      * [Unique](storm/op/logic/unique,md)
+      * [And](storm/op/logic/and.md)
+      * [Exclusive Or (`xor`)](storm/op/logic/xor.md)
+      * [Unique](storm/op/logic/unique.md)
     + Mappings
-      * [Cross](storm/op/map/cross,md)
-      * [Map](storm/op/map/map,md)
-      * [Filter](storm/op/map/filter,md)
-      * [Scan](storm/op/map/scan,md)
+      * [Cross](storm/op/map/cross.md)
+      * [Map](storm/op/map/map.md)
+      * [Filter](storm/op/map/filter.md)
+      * [Scan](storm/op/map/scan.md)
     + Finings
-      * [Blank](storm/op/fin/blank,md)
-      * [Combine](storm/op/fin/combine,md)
+      * [Blank](storm/op/fin/blank.md)
+      * [Combine](storm/op/fin/combine.md)
   - Howtos *(coming soon)*
     + Patterns
       * Loop
