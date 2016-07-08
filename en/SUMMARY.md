@@ -33,5 +33,6 @@
     + Patterns
       * Never
       * Loop
+      * Resolve
 
-* ısmo*(coming soon)*
+* ısmo *(coming soon)*
