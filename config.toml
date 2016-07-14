@@ -1,0 +1,7 @@
+siteTitle="ısmo — ᴅocumenтaтıon"
+baseColor = "#c0ffee"
+linkPrefix = "/ismo"
+docPages = [
+  "/doc",
+  "/doc/SUMMARY.md"
+]
