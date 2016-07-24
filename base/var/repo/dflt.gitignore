@@ -1,0 +1,44 @@
+# NativeScript
+platforms/
+hooks/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# babel/Pure
+lib/
+pkg/lib/
+.pulp-cache/
+.psci*
+
+# Bower
+bower_components/
+src/.webpack.js
+
+# Scala
+target/
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directory
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
