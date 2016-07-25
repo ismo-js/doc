@@ -47,13 +47,9 @@
 @[9,11,12,-,13]
 ```
 
-# Range
-* **`take`**
-* **`drop`**
+# Logic
+
 
 # Fin
 * **`last`**
-* **`flat`**
-
-# Other
-* **`pipe`**
+* **`add`**
