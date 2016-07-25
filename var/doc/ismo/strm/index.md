@@ -85,4 +85,8 @@
 >   @[c,d],
 > ]::add()
 @[a,c,d,b]
+
+concat() == succ()::add()
 ```
+
+//TODO how to take, drop, till, since?
