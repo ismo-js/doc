@@ -1,7 +1,7 @@
 # Origins
-## `tick`
+## `tick$`
 ```
-> tick
+> tick$
 [t,t,t…>
 ```
 
@@ -85,8 +85,15 @@
 >   @[c,d],
 > ]::add()
 @[a,c,d,b]
+```
 
-concat() == succ()::add()
+
+# Shortcuts
+```js
+b$::pre(a$) == @[a$, b$]::succ()::add()
+b$::post(a$) == @[b$, a$]::succ()::add()
+a$::scan(f$, seed) == [f$, a$]::x()::pre(@[seed])::fold()
 ```
 
 //TODO how to take, drop, till, since?
+//TODO logics
