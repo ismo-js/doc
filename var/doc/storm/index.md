@@ -1,13 +1,23 @@
-# Origins
-## `tick$`
+```
+     ___          ____    _____    _   _    _ ___   _ ______
+    / _ \        / ___⟩  |_   _|  | | | |  | ˇ__/  | ˇ      \
+   ⟨ ⟨.⟩ ⟩       \__  \    | |    | `–´ |  | |     | ,^. ,^. |
+    \_\_/        ⟨____/    |_|    `.___,´  |_|     |_| |_| |_|
+
+```
+
+*Universal functional stream handling*
+
+## Origins
+### `tick$`
 ```
 > tick$
-[t,t,t…>
+@[t,t,t…>
 ```
 
 
-# Mappings
-## `x` *join*
+## Mappings
+### `x` *join*
 ```js
 > @[
 >   @[x=> x+1],
@@ -43,7 +53,7 @@
 @[-,-,1,-,-,1]
 ```
 
-## `fold`
+### `fold`
 ```js
 > @[
 >   8,
@@ -57,8 +67,8 @@
 ```
 
 
-# Ranges
-## `succ` *succeed*
+## Ranges
+### `succ` *succeed*
 ```js
 > @[
 >   @[a,-,b,c,-],
@@ -71,14 +81,14 @@
 ```
 
 
-# Finings
-## `last`
+## Finings
+### `last`
 ```js
 > @[1,2]::last()
 @[-,-,2]
 ```
 
-## `add`
+### `add`
 ```js
 > @[
 >   @[a,-,b],
@@ -88,7 +98,7 @@
 ```
 
 
-# Shortcuts
+## Shortcuts
 ```js
 b$::pre(a$) == @[a$, b$]::succ()::add()
 b$::post(a$) == @[b$, a$]::succ()::add()
