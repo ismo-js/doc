@@ -35,7 +35,7 @@
     3,
 )
 
-${RAW=0.01}{RAW=0.02}{RAW=0.03}
+${RAW:0.01}{RAW:0.02}{RAW:0.03}
 ```
 
 ### Map2
@@ -48,13 +48,13 @@ ${RAW=0.01}{RAW=0.02}{RAW=0.03}
     3,
 )
 
-${RAW=4}{RAW=4}{RAW=4}
+${RAW:4}{RAW:4}{RAW:4}
 ```
 
 ### Filter
 ```js
-> new $(
-    async v=> when(await v > 0),
+> new $.when(
+    async v=> await v > 0,
 )(
     1,
     0,
@@ -62,15 +62,15 @@ ${RAW=4}{RAW=4}{RAW=4}
     0,
 )
 
-${RAW=1}{RAW=2}
+${RAW:1}{RAW:2}
 ```
 
 ### Take
 ```js
-> new $(
+> $.crop(
     async {
         [IDX]: idx
-    }=> crop(await idx < 3),
+    }=> await idx < 3,
 )(
     "a",
     "b",
@@ -80,16 +80,16 @@ ${RAW=1}{RAW=2}
     "f",
 )
 
-${STR=a}{STR=b}{STR=c}
+${STR:a}{STR:b}{STR:c}
 ```
 
 ### Drop
 ```js
-> new $(
+> $.crop(
     async {
         [IDX]: idx
         [LEN]: len
-    }=> crop(await idx + 2 < await len),
+    }=> await idx + 2 < await len,
 )(
     "a",
     "b",
@@ -99,16 +99,16 @@ ${STR=a}{STR=b}{STR=c}
     "f",
 )
 
-${STR=a}{STR=b}{STR=c}{STR=d}
+${STR:a}{STR:b}{STR:c}{STR:d}
 ```
 
 ### Last
 ```js
-> new $(
+> $.crop(
     async {
         [IDX]: idx
         [LEN]: len
-    }=> crop(await len - 2 < await idx),
+    }=> await len - 2 < await idx,
 )(
     "a",
     "b",
@@ -118,19 +118,19 @@ ${STR=a}{STR=b}{STR=c}{STR=d}
     "f",
 )
 
-${STR=e}{STR=f}
+${STR:e}{STR:f}
 ```
 
 ### Start/w
 ```js
 > new $(0)(...[1,2,3])
 
-$(RAW=0}{RAW=1}{RAW=2}{RAW=3}
+${RAW:0}{RAW:1}{RAW:2}{RAW:3}
 ```
 
 ### EndOn
 ```js
-> new $(
+> $(
     async {end}=> crop(!await end),
 )(
     {end: false},
@@ -138,7 +138,7 @@ $(RAW=0}{RAW=1}{RAW=2}{RAW=3}
     {end: false},
 )
 
-${end=false}
+${end:false}
 ```
 
 ### Fold
@@ -152,4 +152,19 @@ ${end=false}
 )(1,2,3)
 
 ${RAW:1}{RAW:2}{RAW:6}
+```
+
+### Patch
+```js
+> new $(
+    async {
+        [ERR]: err,
+        ...a,
+    }=> await err ? null : a,
+)(
+    {data: "abc"},
+    {[ERR]: new Error("Problem")}
+)
+
+${}
 ```
