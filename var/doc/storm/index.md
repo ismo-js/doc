@@ -24,47 +24,7 @@
 
 # Usage
 ## Recipes
-### Map
-```js
-> $(
-    async {
-        [RAW]: raw,
-    }=> await raw * 0.01,
-)(
-    1,
-    2,
-    3,
-)
-
-${RAW:0.01}{RAW:0.02}{RAW:0.03}
-```
-
-### Map2
-```js
-> $(
-    async {}=> 4,
-)(
-    1,
-    2,
-    3,
-)
-
-${RAW:4}{RAW:4}{RAW:4}
-```
-
-### Filter
-```js
-> $.when(
-    async v=> await v > 0,
-)(
-    1,
-    0,
-    2,
-    0,
-)
-
-${RAW:1}{RAW:2}
-```
+TODO move to folder
 
 ### Take
 ```js
@@ -122,7 +82,7 @@ ${STR:a}{STR:b}{STR:c}{STR:d}
 ${STR:e}{STR:f}
 ```
 
-### Start/w
+### StartW
 ```js
 > new $(0)(...[1,2,3])
 
