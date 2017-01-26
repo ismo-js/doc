@@ -6,15 +6,24 @@
 
 ```
 
+# Application of Sturm
+
+## Properties
+### Meta
 - **`IDX`** Index of the event
 - **`LEN`** Length of the stream
 - **`KEY`** Key of the event
+- **`PRE`** Previous result
+- **`NXT`** Next event in the stream
 - **`ERR`** Error
+
+### Value
 - **`RAW`** Numeric value
 - **`STR`** String value
 - **`FUN`** Function
 
-## Map
+## Recipes
+### Map
 ```js
 > new $(
     async {
@@ -24,13 +33,12 @@
     1,
     2,
     3,
-    null,
 )
 
-$(RAW=0.01)(RAW=0.02)(RAW=0.03)
+${RAW=0.01}{RAW=0.02}{RAW=0.03}
 ```
 
-## Map2
+### Map2
 ```js
 > new $(
     async {}=> 4,
@@ -38,13 +46,12 @@ $(RAW=0.01)(RAW=0.02)(RAW=0.03)
     1,
     2,
     3,
-    null,
 )
 
-$(RAW=4)(RAW=4)(RAW=4)
+${RAW=4}{RAW=4}{RAW=4}
 ```
 
-## Filter
+### Filter
 ```js
 > new $(
     async v=> when(await v > 0),
@@ -53,13 +60,12 @@ $(RAW=4)(RAW=4)(RAW=4)
     0,
     2,
     0,
-    null,
 )
 
-$(RAW=1)(RAW=2)
+${RAW=1}{RAW=2}
 ```
 
-## Take
+### Take
 ```js
 > new $(
     async {
@@ -72,13 +78,12 @@ $(RAW=1)(RAW=2)
     "d",
     "e",
     "f",
-    null,
 )
 
-$(STR=a)(STR=b)(STR=c)
+${STR=a}{STR=b}{STR=c}
 ```
 
-## Drop
+### Drop
 ```js
 > new $(
     async {
@@ -92,13 +97,12 @@ $(STR=a)(STR=b)(STR=c)
     "d",
     "e",
     "f",
-    null,
 )
 
-$(STR=a)(STR=b)(STR=c)(STR=d)
+${STR=a}{STR=b}{STR=c}{STR=d}
 ```
 
-## Last
+### Last
 ```js
 > new $(
     async {
@@ -112,19 +116,40 @@ $(STR=a)(STR=b)(STR=c)(STR=d)
     "d",
     "e",
     "f",
-    null,
 )
 
-$(STR=e)(STR=f)
+${STR=e}{STR=f}
 ```
 
-## Start/w
+### Start/w
 ```js
 > new $(0)(...[1,2,3])
 
-$(RAW=0)(RAW=1)(RAW=2)(RAW=3)
+$(RAW=0}{RAW=1}{RAW=2}{RAW=3}
 ```
 
-## EndOn
+### EndOn
 ```js
+> new $(
+    async {end}=> crop(!await end),
+)(
+    {end: false},
+    {end: true},
+    {end: false},
+)
+
+${end=false}
+```
+
+### Fold
+```js
+> new $(
+    {},
+    async {
+        [RAW]: raw,
+        [PRE]: pre,
+    }=> await raw * await pre,
+)(1,2,3)
+
+${RAW:1}{RAW:2}{RAW:6}
 ```
