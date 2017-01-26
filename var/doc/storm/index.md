@@ -1,109 +1,176 @@
 ```
-     ___          ____    _____    _   _    _ ___   _ ______
-    / _ \        / ___⟩  |_   _|  | | | |  | ˇ__/  | ˇ      \
-   ⟨ ⟨ ,⟩ ⟩       \__  \    | |    | `–´ |  | |     | ,^. ,^. |
-    \_\_/        ⟨____/    |_|    `.___,´  |_|     |_| |_| |_|
+    ___          ____    _____    _   _    _ ___   _ ______
+   / _ \        / ___⟩  |_   _|  | | | |  | ˇ__/  | ˇ      \
+  ⟨ ⟨ ,⟩ ⟩       \__  \    | |    | `–´ |  | |     | ,^. ,^. |
+   \_\_/        ⟨____/    |_|    `.___,´  |_|     |_| |_| |_|
 
 ```
 
 *Universal functional stream handling*
 
-## Origins
-### `tick$`
-```
-> tick$
-@[t,t,t…>
-```
+# Properties
+## Meta
+- **`IDX`** Index of the event
+- **`LEN`** Length of the stream
+- **`KEY`** Key of the event
+- **`PRE`** Previous result
+- **`NXT`** Next event in the stream
 
+## Value
+- **`ERR`** Error
+- **`RAW`** Numeric value
+- **`STR`** String value
+- **`FUN`** Function
 
-## Mappings
-### `x` *join*
+# Usage
+## Recipes
+### Map
 ```js
-> @[
->   @[x=> x+1],
->   @[1,2,3],
-> ]::x()
-@[2,3,4]
+> $(
+    async {
+        [RAW]: raw,
+    }=> await raw * 0.01,
+)(
+    1,
+    2,
+    3,
+)
 
-> @[
->   @[-,x=> x+1,x=> x+2],
->   @[1,-,-,2],
-> ]::x()
-@[-,2,3,4]
-
-> @[
->   @[to],
->   @[5],
->   @[a,-,b,d],
-> ]::x()
-@[5,-,5,5]
-
-> @[
->   @[filter],
->   @[x=> a === x],
->   @[a,-,b,d],
-> ]::x()
-@[a,-,-,-]
-
-> @[
->   @[when],
->   @[-,-,a,-,-,b],
->   @[1],
-> ]::x()
-@[-,-,1,-,-,1]
+${RAW:0.01}{RAW:0.02}{RAW:0.03}
 ```
 
-### `fold`
+### Map2
 ```js
-> @[
->   8,
->   x=>x+1,
->   x=>x+2,
->   x=>x+1,
->   -,
->   x=>x+1,
-> ]::fold()
-@[8,9,11,12,-,13]
+> $(
+    async {}=> 4,
+)(
+    1,
+    2,
+    3,
+)
+
+${RAW:4}{RAW:4}{RAW:4}
 ```
 
-
-## Ranges
-### `succ` *succeed*
+### Filter
 ```js
-> @[
->   @[a,-,b,c,-],
->   @[-,-,-,d],
-> ]::succ()
-@[
-  [a,-,b,c,-],
-  [-,-,-,-,-,d],
-]
+> $.when(
+    async v=> await v > 0,
+)(
+    1,
+    0,
+    2,
+    0,
+)
+
+${RAW:1}{RAW:2}
 ```
 
-
-## Finings
-### `last`
+### Take
 ```js
-> @[1,2]::last()
-@[-,-,2]
+> $.crop(
+    async {
+        [IDX]: idx
+    }=> await idx < 3,
+)(
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+)
+
+${STR:a}{STR:b}{STR:c}
 ```
 
-### `add`
+### Drop
 ```js
-> @[
->   @[a,-,b],
->   @[c,d],
-> ]::add()
-@[a,c,d,b]
+> $.crop(
+    async {
+        [IDX]: idx
+        [LEN]: len
+    }=> await idx + 2 < await len,
+)(
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+)
+
+${STR:a}{STR:b}{STR:c}{STR:d}
 ```
 
-
-## Shortcuts
+### Last
 ```js
-b$::pre(a$) == @[a$, b$]::succ()::add()
-b$::post(a$) == @[b$, a$]::succ()::add()
-a$::scan(f$, seed) == [f$, a$]::x()::pre(@[seed])::fold()
+> $.crop(
+    async {
+        [IDX]: idx
+        [LEN]: len
+    }=> await len - 2 < await idx,
+)(
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+)
+
+${STR:e}{STR:f}
 ```
 
-//TODO how to take, drop, till, since?
-//TODO logics
+### Start/w
+```js
+> new $(0)(...[1,2,3])
+
+${RAW:0}{RAW:1}{RAW:2}{RAW:3}
+```
+
+### EndOn
+```js
+> $(
+    async {end}=> crop(!await end),
+)(
+    {end: false},
+    {end: true},
+    {end: false},
+)
+
+${end:false}
+```
+
+### Fold
+```js
+> $(
+    {},
+    async {
+        [RAW]: raw,
+        [PRE]: pre,
+    }=> await raw * await pre,
+)(1,2,3)
+
+${RAW:1}{RAW:2}{RAW:6}
+```
+
+### Patch
+```js
+> $(
+    async {
+        [ERR]: err,
+        ...a,
+    }=> await err ? null : a,
+)(
+    {data: "abc"},
+    {[ERR]: new Error("Problem")}
+)
+
+${data:abc}
+```
+
+### Flatten
+```js
+
+```
