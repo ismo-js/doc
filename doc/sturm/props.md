@@ -14,6 +14,7 @@
 - **`LEN`** Length of the stream
 - **`KEY`** Key of the event
 - **`PRE`** Previous result
+- **`CUR`** Circular to current event
 - **`NXT`** Next event in the stream
 
 ## Value
