@@ -1,0 +1,86 @@
+<|header>
+    <|h1> sounᴅ (<code>neon-sound</>)
+    <|k-subh>
+        Runtime-typed <k-name>es</>
+    <|k-action sign="arrow">
+        bringing types to <k-name>es</>
+
+<|section>
+    <|h1> Providing
+
+    <|ul>
+        <|li><code>@ty``</>
+    <|p>… et cetera
+
+<|section>
+    <|h1> Project
+
+    <|p> (… written in <k-name>ts</>)
+
+    <|k-action sign="arrow">
+        <|stencil-route-link url="/doc#h-overview">
+            Project Overview
+
+<|section>
+    <|h1>State
+
+    <|k-action sign="arrow">
+        <|stencil-route-link url="/doc#h-state">
+            Project State
+
+<|section>
+    <|h1>Introduction
+
+    <|p>
+        <k-name>ts</> extends <k-name>es</> syntactically
+        — by type definitions as well as future <k-name>es</> inspired sugar —
+plus semantically
+        — what can be seen in the emitted <code>*.d.ts</>es.
+*sounᴅ* plans to form a contrast …
+
+    <|section>
+        <|k-pcap sign="plus">By
+        <|ul>
+            <|li>
+                Enabeling <strong>run- <em>and</> <k-flag url="#compiler">compile</k-flag>-time type</strong> respectively descriptor <strong>checking</>
+
+    <|section>
+        <|k-pcap sign="minus">Without
+        <|ul>
+            <|li>
+                Extending the language <strong>syntactically</>:
+                At compile-time, no changes were made to the <k-flag url="#compiler">sources</>
+
+    <|section>
+        <|k-pcap sign="equal">Summing to
+        <|p>
+            An interoperable provision of additional semantic expressiveness.
+    </section>
+
+##### *`(=)`* Summing to:
+* <span id="facit1">‹`*`›:</>
+The «compiler» is just a validating <k-name>babel</> plug-in, which uses the statically available information to perform type checks.
+</section>
+
+<|section>
+    <|h1>Featueres
+
+    <|ul>
+        <|li>
+            Types
+            <|ul>
+                <|li>
+                    Interface types — /types/inter
+                <|li>
+                    Class types — /types/class
+                <|li>
+                    Dynamic types — /types/dynam
+
+<|footer>
+    <span id="foot1">‹`¹`›</>
+    <|p>
+       Maybe — at a later point in time,
+       there will be a feature providing strong dynamical typing for <code>let</>/<code>const</> variables.
+    <|p>
+       As I do not see proposals for things like *variable decorators* and *variable read/write hooks* on their ways,
+       therefore a policy change could occur.
