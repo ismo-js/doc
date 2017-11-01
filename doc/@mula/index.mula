@@ -1,0 +1,10 @@
+<|header>
+    <|h1> muʟa
+    <|p> A mark-up language
+
+<|section>
+    <|h1> Principles
+    <|ul |*li>
+        Cleanly written, valid <i>HTML</> is also valid <i>muʟa</>.
+
+<|^>

@@ -10,26 +10,26 @@
 
     <|ul>
         <|li><code>@ty``</>
-    <|p>… et cetera
+    <|p> … et cetera
 
 <|section>
     <|h1> Project
 
     <|p> (… written in <k-name>ts</>)
 
-    <|k-action sign="arrow">
-        <|stencil-route-link url="/doc#h-overview">
+    <|k-action sign=arrow>
+        <|stencil-route-link url=:/doc#h-overview>
             Project Overview
 
 <|section>
-    <|h1>State
+    <|h1> State
 
-    <|k-action sign="arrow">
-        <|stencil-route-link url="/doc#h-state">
+    <|k-action sign=arrow>
+        <|stencil-route-link url=:/doc#h-state>
             Project State
 
 <|section>
-    <|h1>Introduction
+    <|h1> Introduction
 
     <|p>
         <k-name>ts</> extends <k-name>es</> syntactically
@@ -39,26 +39,26 @@ plus semantically
 *sounᴅ* plans to form a contrast …
 
     <|section>
-        <|k-pcap sign="plus">By
+        <|k-pcap sign=plus> By
         <|ul>
             <|li>
-                Enabeling <strong>run- <em>and</> <k-flag url="#compiler">compile</k-flag>-time type</strong> respectively descriptor <strong>checking</>
+                Enabeling <strong>run- <em>and</> <k-flag url=:#compiler>compile</k-flag>-time type</strong> respectively descriptor <strong>checking</>
 
     <|section>
-        <|k-pcap sign="minus">Without
+        <|k-pcap sign=minus> Without
         <|ul>
             <|li>
                 Extending the language <strong>syntactically</>:
                 At compile-time, no changes were made to the <k-flag url="#compiler">sources</>
 
     <|section>
-        <|k-pcap sign="equal">Summing to
+        <|k-pcap sign=equal> Summing to
         <|p>
             An interoperable provision of additional semantic expressiveness.
     </section>
 
 ##### *`(=)`* Summing to:
-* <span id="facit1">‹`*`›:</>
+* <span id=facit1>‹`*`›:</>
 The «compiler» is just a validating <k-name>babel</> plug-in, which uses the statically available information to perform type checks.
 </section>
 
@@ -77,7 +77,7 @@ The «compiler» is just a validating <k-name>babel</> plug-in, which uses the s
                     Dynamic types — /types/dynam
 
 <|footer>
-    <span id="foot1">‹`¹`›</>
+    <span id=foot1>‹`¹`›</>
     <|p>
        Maybe — at a later point in time,
        there will be a feature providing strong dynamical typing for <code>let</>/<code>const</> variables.
