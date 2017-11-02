@@ -1,10 +1,26 @@
-<|header>
-    <|h1> muʟa
-    <|p> A mark-up language
+|header
+    |h1> muʟa
+    |p> A mark-up language
 
-<|section>
-    <|h1> Principles
-    <|ul |*li>
-        Cleanly written, valid <i>HTML</> is also valid <i>muʟa</>.
+|*section
+    |**
+        |h1> Principles
 
-<|^>
+        |ul> |*li
+            Valid, well-escaped <i>HTML</> is also valid <i>muʟa</>.
+
+    |**
+        |h1> Operators
+
+        |h2> <b>T</>ag Context
+
+        |h2> <b>C</>ontent Context
+        |dl
+            |di> |code> &#x26;
+            |dd> Entity reference
+
+            |di> <code>&#x3c;</>–<code>&x3e;</>
+            |dd> Angle Tag
+
+            |di> |code> &#x7c;
+            |dd> Pipe Tag
