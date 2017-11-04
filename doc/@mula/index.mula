@@ -6,21 +6,39 @@
     |**
         |h1> Principles
 
-        |ul> |*li
-            Valid, well-escaped <i>HTML</> is also valid <i>muʟa</>.
+        |ul |*li
+            Valid, well-indented, plus well-escaped <i ^@related-to>HTML</i> is also valid <i>muʟa</i>.
 
     |**
         |h1> Operators
 
-        |h2> <b>T</>ag Context
-
-        |h2> <b>C</>ontent Context
+        |h2> <b>CNT</> Content Context
         |dl
-            |di> |code> &#x26;
+            |di
+                |code> &#x26;<var> ENT </var>
+                |small> Ampersand
             |dd> Entity reference
 
-            |di> <code>&#x3c;</>–<code>&x3e;</>
+            |di
+                |code> &#x3c;<var> TAG </var>&#x3e;
+                |small> Angle bracket(s)
             |dd> Angle Tag
 
-            |di> |code> &#x7c;
+            |di> |code> &#x7c;<var> TAG </var>
             |dd> Pipe Tag
+
+        |h2> <b>I</>tem Context
+        |dl
+            |di
+                |code> ^<var> URI &"|" IDN </var>
+            |dd> Item prop
+
+            |di
+                |code> ^.<var> URI </var>
+            |dd> Item type
+
+            |di
+            |dd> Item Id
+
+            |di
+            |dd> Item
